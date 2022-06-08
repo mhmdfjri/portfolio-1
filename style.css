@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@100&family=Roboto+Mono&family=Tapestry&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #b4bae7;
+  color: black;
+  height: 70px;
+  width: 100%;
+  align-items: center;
+  position: fixed;
+}
+.satuan {
+  margin-bottom: -1px;
+  background-color: #969ef8;
+}
+.logo {
+  font-family: 'Dancing Script', cursive;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+.logo:hover {
+  color: white;
+}
+nav ul {
+  display: flex;
+  width: 40%;
+
+  justify-content: space-between;
+  list-style: none;
+}
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+nav ul li a:hover {
+  border-radius: 10px;
+}
+nav ul li:hover > a {
+  color: white;
+}
+.intro {
+  display: flex;
+  background-color: #b4bae7;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 120px;
+}
+.nama h1 {
+  margin-bottom: 10px;
+}
+.nama h4 {
+  margin-bottom: 5px;
+}
+
+.gambar img {
+  height: 400px;
+}
+.sosmed {
+  display: flex;
+  gap: 20px;
+  padding: 0 150px;
+  margin-top: -100px;
+  background-color: #b4bae7;
+}
+.sosmed img {
+  height: 30px;
+}
+.about {
+  text-align: center;
+  padding: 210px 150px;
+  word-spacing: 5px;
+  line-height: 30px;
+  margin-top: -150px;
+  margin-bottom: -100px;
+}
+.pp {
+  margin-bottom: 10px;
+}
+.p {
+  text-align: center;
+  margin-bottom: -20px;
+  padding-top: 100px;
+}
+.portpolio {
+  width: 80%;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-gap: 10px;
+  margin-bottom: 300px;
+}
+.card {
+  max-width: 800px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(200, 198, 198);
+  overflow: hidden;
+  margin: 10px;
+  flex: 1;
+}
+.card .header {
+  height: 150px;
+  background-color: grey;
+}
+.card .content {
+  text-align: center;
+  padding: 15px;
+}
+.content a {
+  text-decoration: none;
+  color: black;
+}
+.content a:hover {
+  color: rgb(66, 57, 57);
+}
+
+/* hamburger menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+
+  justify-content: space-between;
+  position: relative;
+}
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  opacity: 0;
+  left: -6px;
+  cursor: pointer;
+  z-index: 2;
+}
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+  transition: all 0.5s;
+}
+/* Hamburger menu animation */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+.menu-toggle input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+.menu-toggle input:checked ~ span:nth-child(4) {
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+.menu-toggle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* responsive */
+/* tablet */
+@media screen and (max-width: 768px) {
+  nav ul {
+    width: 50%;
+  }
+}
+/* mobile */
+@media screen and (max-width: 576px) {
+  nav ul {
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    top: 0;
+    width: 70%;
+    flex-direction: column;
+    background-color: #969ef8;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: -1;
+    transform: translateX(100%);
+    transition: all 1s;
+    opacity: 0;
+  }
+  .logo {
+    z-index: -1;
+  }
+  nav ul li a:hover {
+    background-color: #969ef8;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  nav ul.slide {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .logo {
+    margin-left: -40px;
+  }
+  .menu-toggle {
+    margin-right: -40px;
+  }
+  .intro {
+    flex-direction: column;
+  }
+  .gambar img {
+    height: 300px;
+  }
+  .nama {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 100px;
+  }
+  .sosmed {
+    margin-top: 0px;
+    margin-left: -90px;
+  }
+  .portpolio {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px);
+    padding-bottom: 100px;
+  }
+  .about {
+    width: 80%;
+    margin-left: -113px;
+  }
+}
+
+/* contact */
+input[type='text'],
+select,
+textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type='submit'] {
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type='submit']:hover {
+  background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  width: 60%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 5px;
+}
+.contact {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #b4bae7;
+  padding: 100px 0;
+  margin-top: -100px;
+
+  flex-direction: column;
+}
+.footer {
+  background-color: #b4bae7;
+  text-align: center;
+  padding: 20px;
+}
+.footer a {
+  text-decoration: none;
+  color: blue;
+}
+.footer a:hover {
+  color: white;
+}
